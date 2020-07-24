@@ -1,0 +1,12 @@
+input[type='text'] {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #999;
+  position: relative;
+  right: -16px;
+}
+
+.fa-search {
+  position: relative;
+  right: 10px;
+}

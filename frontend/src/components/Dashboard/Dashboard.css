@@ -1,0 +1,9 @@
+.container {
+  margin-top: 1rem;
+}
+
+.top-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}

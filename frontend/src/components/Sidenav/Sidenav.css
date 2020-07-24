@@ -1,14 +1,41 @@
-aside {
+.logo {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.logo img {
+  width: 24%;
+  padding-right: .5rem;
+}
+
+.icon {
+  width: 24px;
+  padding-right: 4px;
+  color: red;
+}
+
+nav {
   background-color: #d1d1d1;
-  width: 250px;
-  height: 100vh;
+  min-width: 250px;
+  max-width: 250px;
+  height: 100vh !important;
 }
 
-ul {
-  text-align: left;
+nav a {
+  display: block;
+  padding: 14px 50px;
+  text-decoration: none !important;
+  margin-left: 8px;
+  margin-right: 8px;
+  color: #000;
 }
 
-ul li {
-  list-style-type: none;
-  text-align: left;
+.active {
+  background-color: #eee;
+  border-radius: 4px;
+  padding: 14px 50px;
+  /* color: #ffffff; */
+  margin-left: 8px;
+  margin-right: 8px;
 }
