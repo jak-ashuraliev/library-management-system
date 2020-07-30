@@ -11,16 +11,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="d-flex">
-          <Sidenav />
-          <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route path="/students" component={Students} />
-            <Route path="/books" component={Books} />
-            <Route path="/transactions" component={Transactions} />
-          </Switch>
-        </div>
+        {/* <div className="d-flex"> */}
+        <Sidenav />
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/students" component={Students} />
+          <Route path="/books" component={Books} />
+          <Route path="/transactions" component={Transactions} />
+        </Switch>
       </div>
+      {/* </div> */}
     </Router>
   );
 }

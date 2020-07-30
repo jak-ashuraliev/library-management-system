@@ -7,7 +7,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 class Dashboard extends Component {
   render() {
     return (
-      <Container>
+      <Container style={{ paddingLeft: "250px", paddingRight: "0" }}>
         <div className="top-wrapper">
           <h4>Dashboard</h4>
           <SearchBar />
@@ -15,39 +15,48 @@ class Dashboard extends Component {
         <hr />
         <Row>
           <Col>
-            <Card body inverse color="primary">
-              <CardTitle>145</CardTitle>
+            <Card body>
+              <CardTitle>
+                145 <i className="fas fa-users"></i>
+              </CardTitle>
               <CardText>STUDENTS</CardText>
-              <CardText>Total number of students</CardText>
+              <p>Total number of students</p>
             </Card>
           </Col>
           <Col>
-            <Card body inverse color="success">
-              <CardTitle>1032</CardTitle>
+            <Card body>
+              <CardTitle>
+                1032
+                <i className="fas fa-book"></i>
+              </CardTitle>
               <CardText>BOOKS</CardText>
-              <CardText>Total number of books</CardText>
+              <p>Total number of books</p>
             </Card>
           </Col>
           <Col>
-            <Card body inverse color="info">
-              <CardTitle>4567</CardTitle>
+            <Card body>
+              <CardTitle>
+                4567
+                <i className="fas fa-file-invoice"></i>
+              </CardTitle>
               <CardText>TRANSACTIONS</CardText>
-              <CardText>Total number of transactions</CardText>
+              <p>Total number of transactions</p>
             </Card>
           </Col>
         </Row>
         <br />
         <Row>
           <Col md={8}>
-            <Card body outline color="primary">
-              <CardTitle>Title</CardTitle>
-              <CardText>Text</CardText>
+            <Card body>
+              <CardText>Statistics</CardText>
+              <i className="fas fa-chart-line"></i>
             </Card>
           </Col>
           <Col md={4}>
-            <Card body outline color="primary">
-              <CardTitle>Title</CardTitle>
-              <CardText>Text</CardText>
+            <Card body>
+              <p>Students</p>
+              <p>Books</p>
+              <p>Transactions</p>
             </Card>
           </Col>
         </Row>

@@ -21,4 +21,32 @@
 span {
   font-weight: bold;
   font-size: 14px;
+  display: inline-block;
+  width: 80px;
+}
+
+.btn-info,
+.btn-info.disabled {
+  color: #fff;
+  background-color: #a388d7 !important;
+  border: none !important;
+  outline: none !important;
+  margin-top: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 0 0.625rem rgba(133, 132, 132, 0.5);
+  transition: all .2s ease-in-out;
+}
+
+.bookImgHolder {
+  right: 0;
+  top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .books-wrapper .card {
+    width: 98% !important;
+    margin-bottom: 10px;
+  }
 }

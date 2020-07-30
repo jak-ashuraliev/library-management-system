@@ -1,19 +1,43 @@
 import React, { Component } from "react";
 import "../../App.css";
 import "../Students/Students.css";
-import { Container, Row, Col, Table } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Container, Row, Col, Table, Button } from "reactstrap";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import StudentDataService from "../../service/StudentDataService";
 
 class Students extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      students: [],
+      isLoading: true,
+    };
+    this.getStudents = this.getStudents.bind(this);
+  }
+
+  componentDidMount() {
+    this.getStudents();
+  }
+
+  getStudents() {
+    StudentDataService.getAllStudents().then((response) => {
+      this.setState({
+        students: response.data,
+        isLoading: false,
+      });
+    });
+  }
   render() {
     return (
-      <Container>
+      <Container style={{ paddingLeft: "250px", paddingRight: "0" }}>
         <div className="top-wrapper">
           <h4>Students</h4>
           <SearchBar />
         </div>
         <hr />
+        {this.state.isLoading && (
+          <div className="alert alert-success">Loading...</div>
+        )}
         <Row>
           <Col>
             <Table
@@ -34,33 +58,24 @@ class Students extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1234</td>
-                  <td>John</td>
-                  <td>Smith</td>
-                  <td>johnsmith@hotmail.com</td>
-                  <td>
-                    <Link>View Details</Link>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4567</td>
-                  <td>Jessica</td>
-                  <td>Johnson</td>
-                  <td>johnsmith@hotmail.com</td>
-                  <td>
-                    <Link>View Details</Link>
-                  </td>
-                </tr>
-                <tr>
-                  <td>6789</td>
-                  <td>Jane</td>
-                  <td>Doe</td>
-                  <td>johnsmith@hotmail.com</td>
-                  <td>
-                    <Link>View Details</Link>
-                  </td>
-                </tr>
+                {this.state.students.map((student) => (
+                  <tr key={student.id}>
+                    <td>{student.id}</td>
+                    <td>{student.firstName}</td>
+                    <td>{student.lastName}</td>
+                    <td>{student.email}</td>
+                    <td>
+                      <Button
+                        style={{ marginTop: "0" }}
+                        size="sm"
+                        color="info"
+                        outline
+                      >
+                        {student.notes}
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
           </Col>

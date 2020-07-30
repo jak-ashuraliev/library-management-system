@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import "../../App.css";
 import "../Sidenav/Sidenav.css";
 import { NavLink } from "react-router-dom";
-import logo from "../../images/logo.svg";
-import icon_dash from "../../images/dashboard.svg";
-import icon_user from "../../images/customer.svg";
-import icon_book from "../../images/book.svg";
-import icon_transaction from "../../images/transaction.svg";
+import logo from "../../images/logo.png";
+import icon_dash from "../../images/dashboard_icon.png";
+import icon_user from "../../images/customer.png";
+import icon_book from "../../images/book.png";
+import icon_transaction from "../../images/transaction.png";
 
 class Sidenav extends Component {
   render() {
@@ -14,10 +14,9 @@ class Sidenav extends Component {
       <nav>
         <p className="logo">
           <img src={logo} alt="logo" />
-          LOGO
         </p>
         <NavLink exact to="/">
-          <img className="icon" src={icon_dash} alt="dashboard icon" />{" "}
+          <img className="icon" src={icon_dash} alt="dashboard icon" />
           Dashboard
         </NavLink>
         <NavLink exact to="/students">
@@ -27,7 +26,7 @@ class Sidenav extends Component {
           <img className="icon" src={icon_book} alt="book icon" /> Books
         </NavLink>
         <NavLink exact to="/transactions">
-          <img className="icon" src={icon_transaction} alt="transaction icon" />{" "}
+          <img className="icon" src={icon_transaction} alt="transaction icon" />
           Transactions
         </NavLink>
       </nav>

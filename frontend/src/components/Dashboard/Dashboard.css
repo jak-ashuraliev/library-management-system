@@ -7,3 +7,51 @@
   justify-content: space-between;
   padding: 0;
 }
+
+.top-wrapper h4 {
+  padding-top: 8px;
+  color: #323544;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.card {
+  -webkit-box-shadow: 0 0 10px -6px #777;
+  -moz-box-shadow: 0 0 10px -6px #777;
+  box-shadow: 0 0 10px -6px #777;
+}
+
+.card-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0 !important;
+  color: #df779b;
+}
+
+.fa-users,
+.fa-book,
+.fa-file-invoice {
+  font-size: 4rem;
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  opacity: 10%;
+}
+
+.card-text {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #323544 !important;
+  margin-bottom: 0 !important;
+}
+
+.card p {
+  letter-spacing: .5px;
+  color: #747474;
+}
+
+.fa-chart-line {
+  font-size: 14rem;
+  color: #a38bd5;
+}

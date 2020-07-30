@@ -1,19 +1,43 @@
 import React, { Component } from "react";
 import "../../App.css";
 import "../Transactions/Transactions.css";
-import { Container, Row, Col, Table } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Container, Row, Col, Table, Button } from "reactstrap";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import TransactionDataSerivce from "../../service/TransactionDataService";
 
 class Transactions extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      transactions: [],
+      isLoading: true,
+    };
+    this.getTransactions = this.getTransactions.bind(this);
+  }
+
+  componentDidMount() {
+    this.getTransactions();
+  }
+
+  getTransactions() {
+    TransactionDataSerivce.getAllTransactions().then((response) => {
+      this.setState({
+        transactions: response.data,
+        isLoading: false,
+      });
+    });
+  }
   render() {
     return (
-      <Container>
+      <Container style={{ paddingLeft: "250px", paddingRight: "0" }}>
         <div className="top-wrapper">
           <h4>Transactions</h4>
           <SearchBar />
         </div>
         <hr />
+        {this.state.isLoading && (
+          <div className="alert alert-success">Loading...</div>
+        )}
         <Row>
           <Col>
             <Table
@@ -34,33 +58,19 @@ class Transactions extends Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1234567</td>
-                  <td>Wuthering Heights</td>
-                  <td>01/02/2020</td>
-                  <td>01/03/2020</td>
-                  <td>
-                    <Link>View Details</Link>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4567123</td>
-                  <td>Wuthering Heights</td>
-                  <td>01/02/2020</td>
-                  <td>01/03/2020</td>
-                  <td>
-                    <Link>View Details</Link>
-                  </td>
-                </tr>
-                <tr>
-                  <td>67891345</td>
-                  <td>Wuthering Heights</td>
-                  <td>01/02/2020</td>
-                  <td>01/03/2020</td>
-                  <td>
-                    <Link>View Details</Link>
-                  </td>
-                </tr>
+                {this.state.transactions.map((transaction) => (
+                  <tr key={transaction.id}>
+                    <td>{transaction.id}</td>
+                    <td>{transaction.title}</td>
+                    <td>{transaction.dateOut}</td>
+                    <td>{transaction.dateIn}</td>
+                    <td>
+                      <Button size="sm" color="info" outline>
+                        {transaction.details}
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
           </Col>
